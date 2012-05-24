@@ -1,5 +1,7 @@
 # RCSS
 
+#### **Note: This is under active development and is not even usable, but I was running low on private repositories so I just left this one open or now. Feel free to follow along but don't expect anything quite yet.**
+
 ### About
 RCSS is an attempt at playing with CSS animations using Ruby. I find CSS to be rather infuriating to write, so I figured I'd try to find a way to generate CSS using Ruby instead. The goal here is to have a nicer interface for developing CSS animations and dynamically calculating values for the CSS without having to use something like SCSS or Less. Ruby has a familiar syntax, so that's what I want.
 

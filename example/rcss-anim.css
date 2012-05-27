@@ -1,0 +1,75 @@
+.Box {
+  width: 128px;
+  height: 128px;
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  background-color: red;
+}
+
+@-webkit-keyframes BoxAnimation-step-0 {
+  from {
+    width: 128px;
+    height: 128px;
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    background-color: red;
+  }
+
+  to {
+    width: 256px;
+    height: 128px;
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    background-color: red;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-1 {
+  from {
+    width: 256px;
+    height: 128px;
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    background-color: red;
+  }
+
+  to {
+    width: 256px;
+    height: 256px;
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    background-color: red;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-2 {
+  from {
+    width: 256px;
+    height: 256px;
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    background-color: red;
+  }
+
+  to {
+    width: 256px;
+    height: 256px;
+    -webkit-transform: rotate3d(0, 1, 0, -180deg);
+    background-color: red;
+  }
+}
+
+.BoxAnimation0 {
+  -webkit-animation-name: "BoxAnimation-step-0";
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.BoxAnimation1 {
+  -webkit-animation-name: "BoxAnimation-step-1";
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.BoxAnimation2 {
+  -webkit-animation-name: "BoxAnimation-step-2";
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+}

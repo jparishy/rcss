@@ -175,6 +175,12 @@ It looks like this:
   ```
 4. And it should Just Work(tm)
 
+# Dependencies
+RCSS depends on jQuery (1.7.2), Ruby (1.9.3), and a WebKit-based browser (but it will eventually support all of the vender prefixes. I just generally only care about Chrome :p)
+
+# Examples
+Examples will be coming soon...
+
 My understanding of CSS3 kind of sucks so this may change as I continue working.
 
 Hopefully this turns out sweet!

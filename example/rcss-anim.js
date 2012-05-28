@@ -13,6 +13,42 @@ function BoxAnimation(elementName) {
       element.toggleClass("BoxAnimation2")
     }
     else if(element.hasClass("BoxAnimation2")) {
+      element.toggleClass("BoxAnimation2")
+      element.toggleClass("BoxAnimation3")
+    }
+    else if(element.hasClass("BoxAnimation3")) {
+      element.toggleClass("BoxAnimation3")
+      element.toggleClass("BoxAnimation4")
+    }
+    else if(element.hasClass("BoxAnimation4")) {
+      element.toggleClass("BoxAnimation4")
+      element.toggleClass("BoxAnimation5")
+    }
+    else if(element.hasClass("BoxAnimation5")) {
+      element.toggleClass("BoxAnimation5")
+      element.toggleClass("BoxAnimation6")
+    }
+    else if(element.hasClass("BoxAnimation6")) {
+      element.toggleClass("BoxAnimation6")
+      element.toggleClass("BoxAnimation7")
+    }
+    else if(element.hasClass("BoxAnimation7")) {
+      element.toggleClass("BoxAnimation7")
+      element.toggleClass("BoxAnimation8")
+    }
+    else if(element.hasClass("BoxAnimation8")) {
+      element.toggleClass("BoxAnimation8")
+      element.toggleClass("BoxAnimation9")
+    }
+    else if(element.hasClass("BoxAnimation9")) {
+      element.toggleClass("BoxAnimation9")
+      element.toggleClass("BoxAnimation10")
+    }
+    else if(element.hasClass("BoxAnimation10")) {
+      element.toggleClass("BoxAnimation10")
+      element.toggleClass("BoxAnimation11")
+    }
+    else if(element.hasClass("BoxAnimation11")) {
     }
   });
 }

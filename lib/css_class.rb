@@ -5,7 +5,7 @@ class CSSClass < CSSBaseSerializable
   
   def pixelatize_value(val)
     out = val.to_s
-    if val.class == Fixnum
+    if val.class == Fixnum or val.class == Float
       out << "px"
     end
     
@@ -27,6 +27,14 @@ class CSSClass < CSSBaseSerializable
   
   def rules
     @rules
+  end
+  
+  def [](symbol)
+    @rules[symbol]
+  end
+  
+  def []=(symbol, value)
+    @rules[symbol] = value
   end
   
 end

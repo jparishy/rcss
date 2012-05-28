@@ -32,19 +32,19 @@ It looks like this:
 	  end
 
 	  def do_animations
-	    # First animation.
+			# First animation.
 	    animation 1, 0, nil, -> {
 	      @class.rules[:width] = 256
 	    }, -> { 
-		    # Do the next animation when the first one finishes.
+				# Do the next animation when the first one finishes.
 	      animation 1, 0, nil, -> {
 	        @class.rules[:height] = 256
 	      }, -> {
-		      # And then finally the last animation.
+					# And then finally the last animation.
 	        animation 1, 0, nil, -> {
 	          @class.rules[:_webkit_transform] = "rotate3d(0, 1, 0, -180deg)"
 	        }, -> {
-            # All animations are finished at this point.
+						# All animations are finished at this point.
 	        }
 	      }
 	    }

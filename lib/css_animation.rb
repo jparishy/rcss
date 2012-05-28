@@ -28,7 +28,7 @@ class CSSAnimation < CSSBaseSerializable
   
   def pixelatize_value(val)
     out = val.to_s
-    if val.class == Fixnum
+    if val.class == Fixnum or val.class == Float
       out << "px"
     end
     
@@ -70,6 +70,7 @@ class CSSAnimation < CSSBaseSerializable
     class_lines << "  -webkit-animation-duration: #{duration}s;"
     class_lines << "  -webkit-animation-delay: #{delay}s;"
     class_lines << "  -webkit-animation-fill-mode: forwards;"
+    class_lines << "  -webkit-animation-timing-function: ease-in-out;"
     class_lines << "}"
     
     @animation_classes << class_lines.join("\n")

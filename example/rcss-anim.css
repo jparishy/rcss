@@ -1,82 +1,294 @@
 .Box {
   width: 128px;
-  height: 128px;
-  -webkit-transform: rotate3d(0, 1, 0, 0deg);
+  height: 32px;
   background-color: red;
-  border-radius: 64px;
+  margin-left: 0px;
 }
 
 @-webkit-keyframes BoxAnimation-step-0 {
   from {
     width: 128px;
-    height: 128px;
-    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    height: 32px;
     background-color: red;
-    border-radius: 64px;
+    margin-left: 0px;
   }
 
   to {
-    width: 256px;
-    height: 128px;
-    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    width: 128px;
+    height: 32px;
     background-color: red;
-    border-radius: 32px;
+    margin-left: 20px;
   }
 }
 
 @-webkit-keyframes BoxAnimation-step-1 {
   from {
-    width: 256px;
-    height: 128px;
-    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    width: 128px;
+    height: 32px;
     background-color: red;
-    border-radius: 32px;
+    margin-left: 20px;
   }
 
   to {
-    width: 256px;
-    height: 256px;
-    -webkit-transform: rotate3d(0, 1, 0, 0deg);
-    background-color: yellow;
-    border-radius: 128px;
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -20.0px;
   }
 }
 
 @-webkit-keyframes BoxAnimation-step-2 {
   from {
-    width: 256px;
-    height: 256px;
-    -webkit-transform: rotate3d(0, 1, 0, 0deg);
-    background-color: yellow;
-    border-radius: 128px;
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -20.0px;
   }
 
   to {
-    width: 256px;
-    height: 256px;
-    -webkit-transform: rotate3d(0, 1, 0, -180deg);
-    background-color: blue;
-    border-radius: 128px;
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-3 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 10px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-4 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 10px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -10.0px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-5 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -10.0px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-6 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 5px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-7 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 5px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -5.0px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-8 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -5.0px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-9 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 2px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-10 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 2px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -2.0px;
+  }
+}
+
+@-webkit-keyframes BoxAnimation-step-11 {
+  from {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: -2.0px;
+  }
+
+  to {
+    width: 128px;
+    height: 32px;
+    background-color: red;
+    margin-left: 0px;
   }
 }
 
 .BoxAnimation0 {
   -webkit-animation-name: "BoxAnimation-step-0";
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 0.125s;
   -webkit-animation-delay: 0s;
   -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
 }
 
 .BoxAnimation1 {
   -webkit-animation-name: "BoxAnimation-step-1";
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 0.25s;
   -webkit-animation-delay: 0s;
   -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
 }
 
 .BoxAnimation2 {
   -webkit-animation-name: "BoxAnimation-step-2";
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 0.125s;
   -webkit-animation-delay: 0s;
   -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation3 {
+  -webkit-animation-name: "BoxAnimation-step-3";
+  -webkit-animation-duration: 0.0625s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation4 {
+  -webkit-animation-name: "BoxAnimation-step-4";
+  -webkit-animation-duration: 0.125s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation5 {
+  -webkit-animation-name: "BoxAnimation-step-5";
+  -webkit-animation-duration: 0.0625s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation6 {
+  -webkit-animation-name: "BoxAnimation-step-6";
+  -webkit-animation-duration: 0.03125s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation7 {
+  -webkit-animation-name: "BoxAnimation-step-7";
+  -webkit-animation-duration: 0.0625s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation8 {
+  -webkit-animation-name: "BoxAnimation-step-8";
+  -webkit-animation-duration: 0.03125s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation9 {
+  -webkit-animation-name: "BoxAnimation-step-9";
+  -webkit-animation-duration: 0.015625s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation10 {
+  -webkit-animation-name: "BoxAnimation-step-10";
+  -webkit-animation-duration: 0.03125s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.BoxAnimation11 {
+  -webkit-animation-name: "BoxAnimation-step-11";
+  -webkit-animation-duration: 0.015625s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
 }

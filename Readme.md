@@ -32,17 +32,19 @@ It looks like this:
 	  end
 
 	  def do_animations
+	    # First animation.
 	    animation 1, 0, nil, -> {
 	      @class.rules[:width] = 256
 	    }, -> { 
+		    # Do the next animation when the first one finishes.
 	      animation 1, 0, nil, -> {
 	        @class.rules[:height] = 256
 	      }, -> {
-	        # Done!
+		      # And then finally the last animation.
 	        animation 1, 0, nil, -> {
 	          @class.rules[:_webkit_transform] = "rotate3d(0, 1, 0, -180deg)"
 	        }, -> {
-
+            # All animations are finished at this point.
 	        }
 	      }
 	    }
@@ -178,7 +180,8 @@ My understanding of CSS3 kind of sucks so this may change as I continue working.
 Hopefully this turns out sweet!
 
 # Author
-Julius Parishy [Follow me on Twitter](https://twitter.com/jparishy)
+[Julius Parishy](http://juliusparishy.com/)
+Follow me on Twitter, [@jparishy](https://twitter.com/jparishy)
 
 # License
 MIT License, Copyright (C) 2012

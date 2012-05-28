@@ -1,23 +1,26 @@
 .Box {
   width: 128px;
   height: 128px;
-  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  -webkit-transform: rotate3d(0, 1, 0, 0deg);
   background-color: red;
+  border-radius: 64px;
 }
 
 @-webkit-keyframes BoxAnimation-step-0 {
   from {
     width: 128px;
     height: 128px;
-    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
     background-color: red;
+    border-radius: 64px;
   }
 
   to {
     width: 256px;
     height: 128px;
-    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
     background-color: red;
+    border-radius: 32px;
   }
 }
 
@@ -25,15 +28,17 @@
   from {
     width: 256px;
     height: 128px;
-    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
     background-color: red;
+    border-radius: 32px;
   }
 
   to {
     width: 256px;
     height: 256px;
-    -webkit-transform: rotate3d(0, 1, 0, 180deg);
-    background-color: red;
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    background-color: yellow;
+    border-radius: 128px;
   }
 }
 
@@ -41,15 +46,17 @@
   from {
     width: 256px;
     height: 256px;
-    -webkit-transform: rotate3d(0, 1, 0, 180deg);
-    background-color: red;
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    background-color: yellow;
+    border-radius: 128px;
   }
 
   to {
     width: 256px;
     height: 256px;
     -webkit-transform: rotate3d(0, 1, 0, -180deg);
-    background-color: red;
+    background-color: blue;
+    border-radius: 128px;
   }
 }
 

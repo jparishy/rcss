@@ -1,0 +1,79 @@
+.Header {
+  width: 1200px;
+  height: 250px;
+  background-color: rgb(100, 180, 230);
+  opacity: 0;
+  margin-top: 0px;
+  font-family: Helvetica Neue;
+  font-size: 24pt;
+  text-align: center;
+  border-radius: 5px;
+}
+
+@-webkit-keyframes HeaderAnimation-step-0 {
+  from {
+    width: 1200px;
+    height: 250px;
+    background-color: rgb(100, 180, 230);
+    opacity: 0;
+    margin-top: -275px;
+    font-family: Helvetica Neue;
+    font-size: 24pt;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  to {
+    width: 1200px;
+    height: 250px;
+    background-color: rgb(100, 180, 230);
+    opacity: 0.5;
+    margin-top: 31px;
+    font-family: Helvetica Neue;
+    font-size: 24pt;
+    text-align: center;
+    border-radius: 5px;
+  }
+}
+
+@-webkit-keyframes HeaderAnimation-step-1 {
+  from {
+    width: 1200px;
+    height: 250px;
+    background-color: rgb(100, 180, 230);
+    opacity: 0.5;
+    margin-top: 31px;
+    font-family: Helvetica Neue;
+    font-size: 24pt;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  to {
+    width: 1200px;
+    height: 250px;
+    background-color: rgb(100, 180, 230);
+    opacity: 1;
+    margin-top: 0px;
+    font-family: Helvetica Neue;
+    font-size: 24pt;
+    text-align: center;
+    border-radius: 5px;
+  }
+}
+
+.HeaderAnimation0 {
+  -webkit-animation-name: "HeaderAnimation-step-0";
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.HeaderAnimation1 {
+  -webkit-animation-name: "HeaderAnimation-step-1";
+  -webkit-animation-duration: 0.2s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}

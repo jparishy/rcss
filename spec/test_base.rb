@@ -45,4 +45,4 @@ class BoxAnimation < CSSAnimation
 end
 
 anim = BoxAnimation.new
-anim.export "../example/rcss-anim.css", "../example/rcss-anim.js"
+anim.export "../testbed/rcss-anim.css", "../testbed/rcss-anim.js"

@@ -173,7 +173,7 @@ It looks like this:
 
 	</html>
   ```
-4. And it should Just Work(tm)
+4. And it should Just Work™
 
 # Dependencies
 RCSS depends on jQuery (1.7.2), Ruby (1.9.3), and a WebKit-based browser (but it will eventually support all of the vender prefixes. I just generally only care about Chrome :p)

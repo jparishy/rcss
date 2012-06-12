@@ -30,14 +30,12 @@ You get the `Math` module and recursion **fo free!**
 
 Try it for yourself. It's awesome. I promise.
 
-# Dependencies
+### Dependencies
 RCSS depends on Ruby (1.9.3) and a WebKit-based browser (Other vender prefixes coming soon!).
 
 
-# Author
-[Julius Parishy](http://juliusparishy.com/)
-
-Follow me on Twitter, [@jparishy](https://twitter.com/jparishy)
+### Author
+[@jparishy](https://twitter.com/jparishy) or [my blog](http://juliusparishy.com/).
 
 # License
 MIT License, Copyright (C) 2012

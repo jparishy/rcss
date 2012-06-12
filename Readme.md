@@ -5,10 +5,10 @@
 ### About
 RCSS is a system built on top of Ruby to generate CSS animation using code that looks a lot like CoreAnimation.
 
-Basically, you can create an element (CSSClass) with a set of CSS styling rules (CSSRule) and animate between the values for those rules.
+Basically, you can create an element with a set of CSS styling rules and animate between the values for those rules.
 
 Essentially, an animation is composed of a `duration`, a `delay`, some `options`, the actual `animation`, and a `completion` block.
-Structurally, this RCSS uses the style of `UIView#animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion`:
+Structurally, this RCSS uses the style of `UIView#animateWithDuration:delay:options:animations:completion:completion`:
 ```ruby
   animation theDuration, theDelay, someOptions, -> {
     # The animations

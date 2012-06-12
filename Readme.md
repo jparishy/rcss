@@ -1,8 +1,8 @@
 # RCSS
 
-### *** Note: RCSS is an early stage project, and while I put a lot of work into making it awesome, I'm a fairly busy guy so keep checking back for updates! ***
+***Note: RCSS is an early stage project, and while I put a lot of work into making it awesome, I'm a fairly busy guy so keep checking back for updates!***
 
-### *** Keep in mind that I am no CSS3 expert. My background is all in native development. This is an experiment, after all! ***
+***Keep in mind that I am no CSS3 expert. My background is all in native development. This is an experiment, after all!***
 
 ### About
 RCSS is a system built on top of Ruby to generate CSS animation using code that looks a lot like CoreAnimation.

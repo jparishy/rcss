@@ -1,7 +1,5 @@
 # RCSS
 
-***Note: RCSS is an early stage project, and while I put a lot of work into making it awesome, I'm a fairly busy guy so keep checking back for updates!***
-
 ***Keep in mind that I am no CSS3 expert. My background is all in native development. This is an experiment, after all!***
 
 ### About

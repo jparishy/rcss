@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>RCSS by jparishy</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/jparishy/rcss">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/jparishy/rcss/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/jparishy/rcss/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>RCSS</h1>
+          <p>Ruby+CSS=&lt;3</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/jparishy">jparishy</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>RCSS</h1>
+
+<p><strong><em>Keep in mind that I am no CSS3 expert. My background is all in native development. This is an experiment, after all!</em></strong></p>
+
+<h3>About</h3>
+
+<p>RCSS is a system built on top of Ruby to generate CSS animation using code that looks a lot like CoreAnimation.</p>
+
+<p>Essentially, an animation is composed of a <code>duration</code>, a <code>delay</code>, some <code>options</code>, the actual <code>animation</code>, and a <code>completion</code> block.
+Structurally, this RCSS uses the style of <code>UIView#animateWithDuration:delay:options:animations:completion:</code>:</p>
+
+<div class="highlight">
+<pre>  <span class="n">animation</span> <span class="n">theDuration</span><span class="p">,</span> <span class="n">theDelay</span><span class="p">,</span> <span class="n">someOptions</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1"># The animations</span>
+  <span class="p">},</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1"># The completion handler</span>
+  <span class="p">}</span>
+</pre>
+</div>
+
+
+<p>What makes this cool is the completion handler. Sure, you can write animations by hand. But what if you want to do something complex?
+I certainly don't want to write an animation with 20+ keyframes by hand when I can generate them with some code...</p>
+
+<p>That's what makes RCSS <strong><em>awesome</em></strong>.</p>
+
+<p>The completion handler allows you to chain single animations together to make one, complex animation.
+<strong>RCSS will generate the keyframe percentages and insert the rule changes</strong> <strong><em>automatically.</em></strong></p>
+
+<p>So, yeah that's pretty cool. But it gets betters. RCSS is Ruby. You can use anything you want in Ruby to generate animations.
+You get the <code>Math</code> module and recursion <strong>fo free!</strong></p>
+
+<p>Try it for yourself. It's awesome. I promise.</p>
+
+<h3>Dependencies</h3>
+
+<p>RCSS depends on Ruby (1.9.3) and a WebKit-based browser (Other vender prefixes coming soon!).</p>
+
+<h3>Author</h3>
+
+<p><a href="https://twitter.com/jparishy">@jparishy</a> or <a href="http://juliusparishy.com/">my blog</a>.</p>
+
+<h1>License</h1>
+
+<p>MIT License, Copyright (C) 2012</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>

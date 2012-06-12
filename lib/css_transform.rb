@@ -11,7 +11,7 @@ require_relative 'css_base_serializable'
 module Rcss
   
   class CSSTransform < CSSBaseSerializable
-    def init
+    def initialize
     
     end
   

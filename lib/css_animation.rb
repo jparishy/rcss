@@ -8,19 +8,35 @@
 #
 
 require_relative 'css_base_serializable'
+require_relative 'css_keyframe'
+require_relative 'css_keyframe_exporter'
 
 module Rcss
 
   class CSSAnimation < CSSBaseSerializable
 
-    def initialize
-      @keyframes = [ ]
-      @animation_classes = [ ]
-      @keyframe_step = 0
+    @@current_animation = nil
+    
+    def self.current_animation
+      @@current_animation
+    end
+    
+    def self.set_current_animation anim
+      @@current_animation = anim
     end
 
-    def self.generate_css
-      Object::const_get(self.name).new.css
+    def initialize
+      @keyframes = { }
+      @total_duration = 0
+      
+      CSSAnimation.set_current_animation self
+    end
+    
+    def register_class css_class
+      @registered_classes = [ ] if @registered_classes == nil
+      
+      @registered_classes << css_class
+      puts "Registered #{css_class} with current animation."
     end
   
     def css
@@ -32,8 +48,13 @@ module Rcss
       puts "You need to implement #{self.class.name}#do_animations!"
     end
   
-    def cache_current_values
-      @class.rules.dup
+    def cache_class_rules the_class
+      rules = { }
+      the_class.rules.each do |name, rule|
+        rules[name] = rule.dup
+      end
+      
+      rules
     end
   
     def pixelatize_value(val)
@@ -44,117 +65,92 @@ module Rcss
     
       out
     end
-  
-    def generate_keyframes_for_variables(old_vars, new_vars)
     
-      keyframe_lines = [ ]
-      keyframe_lines << "@-webkit-keyframes #{self.class.name}-step-#{@keyframe_step} {"
-    
-      keyframe_lines << "  from {"
-    
-      # Add the original values in here
-      old_vars.each do |name, value|
-        unless false #value == new_vars[name]
-          keyframe_lines << "    #{name.to_s.gsub("_", "-")}: #{pixelatize_value value};"
+    def filter_changed_rules old_rules, new_rules
+      changed_rules = { }
+      
+      new_rules.each do |name, value|
+        if old_rules[name].value != value.value then
+          changed_rules[name] = value
         end
       end
+      
+      changed_rules
+    end
     
-      keyframe_lines << "  }\n"
-    
-      keyframe_lines << "  to {"
-    
-      # Add the animated values in here
-      new_vars.each do |name, value|
-        unless false #value == old_vars[name]
-          keyframe_lines << "    #{name.to_s.gsub("_", "-")}: #{pixelatize_value value};"
-        end
+    #
+    # Generates keyframes for any changec classes during the last animation.
+    #
+    def generate_keyframes duration, delay, options, old_class_rules, new_class_rules
+      
+      changed_css_rules = { }
+      old_class_rules.each do |css_class, rules|
+        changed_css_rules[css_class] = filter_changed_rules(rules, new_class_rules[css_class])
       end
-    
-      keyframe_lines << "  }"
-      keyframe_lines << "}"
-    
-      @keyframes << keyframe_lines.join("\n")
-    end
-  
-    def generate_class_for_animation_step(duration, delay, options)
-      class_lines = [ ]
-      class_lines << ".#{self.class.name}#{@keyframe_step} {"
-    
-      class_lines << "  -webkit-animation-name: \"#{self.class.name}-step-#{@keyframe_step}\";"
-      class_lines << "  -webkit-animation-duration: #{duration}s;"
-      class_lines << "  -webkit-animation-delay: #{delay}s;"
-      class_lines << "  -webkit-animation-fill-mode: forwards;"
-      class_lines << "  -webkit-animation-timing-function: ease-in-out;"
-      class_lines << "}"
-    
-      @animation_classes << class_lines.join("\n")
-    end
-  
-    def javascript
-    
-      class_name = self.class.name
-      js_lines = [ ]
-      js_lines << "function #{class_name}(elementName) {"
-      js_lines << "  element = $(elementName);"
-      js_lines << "  element.addClass(\"#{class_name}0\");\n\n"
-      js_lines << "  element.bind(\"webkitAnimationEnd\", function() {"
-    
-      @keyframe_step.times do |i|
       
-        ifType = "else if"
-        ifType = "if" if i == 0
-      
-        js_lines << "    #{ifType}(element.hasClass(\"#{class_name}#{i}\")) {";
-      
-        unless i == (@keyframe_step - 1)
-          js_lines << "      element.toggleClass(\"#{class_name}#{i}\")"
-          js_lines << "      element.toggleClass(\"#{class_name}#{i + 1}\")"
+      changed_css_rules.each do |css_class, rules|
+        @keyframes[css_class] = [ ] if @keyframes[css_class] == nil
+        
+        if delay != 0 then
+          delay_keyframe = CSSKeyframe.new delay, nil
+          @keyframes[css_class] << delay_keyframe
         end
-      
-        js_lines << "    }"
-      
+        
+        animation_keyframe = CSSKeyframe.new duration, rules
+        @keyframes[css_class] << animation_keyframe
       end
-    
-      js_lines << "  });"
-      js_lines << "}"
-    
-      js_lines.join("\n")
-    end
-  
-    def export(css_filename, javascript_filename)
-    
-      css_file = File.new css_filename, "w+"
-      css_file << @class.css
-      css_file << "\n\n"
-      css_file << self.css
-      css_file << "\n"
-      css_file.close
-    
-      js_file = File.new javascript_filename, "w+"
-      js_file << self.javascript
-      js_file << "\n"
-      js_file.close
-    
     end
   
     def simulate_animation(duration, delay, options, animationLambda)
     
       # Cache values
-      old_vars = cache_current_values
+      old_class_rules = { }
+      @registered_classes.each do |c|
+        old_class_rules[c] = cache_class_rules(c)
+      end
+      
       animationLambda.call
-      new_vars = cache_current_values
+      new_class_rules = { }
+      @registered_classes.each do |c|
+        new_class_rules[c] = cache_class_rules(c)
+      end
     
       # Generate the animations
-      generate_class_for_animation_step duration, delay, options
-      generate_keyframes_for_variables old_vars, new_vars
-      @keyframe_step += 1
+      generate_keyframes duration, delay, options, old_class_rules, new_class_rules
     end
   
     def animation(duration, delay, options, animationLambda, completionLambda)
+      
+      @total_duration += (duration + delay)
     
-      simulate_animation duration, delay, options, animationLambda
-      completionLambda.call
+      if @registered_classes != nil and @registered_classes.length != 0 then
+        simulate_animation duration, delay, options, animationLambda
+        completionLambda.call
+      else
+        puts "Warning: No animations can be simulated without first registering a class."
+      end
     end
+    
+    def generate
+      do_animations
+      
+      @registered_classes.each do |c|
+        puts c.css
+      end
+      
+      @keyframes.each do |css_class, keyframes|
+        current_time = 0
+        
+        puts "@-webkit-keyframes #{self.class.name}-#{css_class.name}-keyframes {\n"
+        
+        keyframes.each do |keyframe|
+          puts CSSKeyframeExporter.export keyframe, current_time, @total_duration
+          current_time += keyframe.duration
+        end
+        puts "}\n\n"
+      end
+    end
+    
   end
 
 end

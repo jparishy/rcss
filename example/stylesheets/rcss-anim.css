@@ -77,3 +77,164 @@
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-in-out;
 }
+
+.BoxAnimation {
+  -webkit-animation-name: "BoxAnimation-Box1-keyframes";
+  -webkit-animation-duration: 1.25s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+.Box1 {
+  width: 128px;
+  height: 128px;
+  background-color: red;
+  margin-left: 348px;
+  margin-top: 232px;
+}
+@-webkit-keyframes BoxAnimation-Box1-keyframes {
+  3% {
+    margin-left: 350px;
+  }
+  6% {
+    margin-left: 348px;
+    margin-top: 267px;
+  }
+  9% {
+    margin-left: 343px;
+    margin-top: 284px;
+  }
+  12% {
+    margin-left: 336px;
+    margin-top: 300px;
+  }
+  14% {
+    margin-left: 326px;
+    margin-top: 314px;
+  }
+  17% {
+    margin-left: 314px;
+    margin-top: 326px;
+  }
+  20% {
+    margin-left: 300px;
+    margin-top: 336px;
+  }
+  23% {
+    margin-left: 284px;
+    margin-top: 343px;
+  }
+  25% {
+    margin-left: 267px;
+    margin-top: 348px;
+  }
+  28% {
+    margin-left: 250px;
+    margin-top: 350px;
+  }
+  31% {
+    margin-left: 232px;
+    margin-top: 348px;
+  }
+  34% {
+    margin-left: 215px;
+    margin-top: 343px;
+  }
+  37% {
+    margin-left: 200px;
+    margin-top: 336px;
+  }
+  39% {
+    margin-left: 185px;
+    margin-top: 326px;
+  }
+  42% {
+    margin-left: 173px;
+    margin-top: 314px;
+  }
+  45% {
+    margin-left: 163px;
+    margin-top: 300px;
+  }
+  48% {
+    margin-left: 156px;
+    margin-top: 284px;
+  }
+  50% {
+    margin-left: 151px;
+    margin-top: 267px;
+  }
+  53% {
+    margin-left: 150px;
+    margin-top: 250px;
+  }
+  56% {
+    margin-left: 151px;
+    margin-top: 232px;
+  }
+  59% {
+    margin-left: 156px;
+    margin-top: 215px;
+  }
+  62% {
+    margin-left: 163px;
+    margin-top: 200px;
+  }
+  64% {
+    margin-left: 173px;
+    margin-top: 185px;
+  }
+  67% {
+    margin-left: 185px;
+    margin-top: 173px;
+  }
+  70% {
+    margin-left: 199px;
+    margin-top: 163px;
+  }
+  73% {
+    margin-left: 215px;
+    margin-top: 156px;
+  }
+  75% {
+    margin-left: 232px;
+    margin-top: 151px;
+  }
+  78% {
+    margin-left: 249px;
+    margin-top: 150px;
+  }
+  81% {
+    margin-left: 267px;
+    margin-top: 151px;
+  }
+  84% {
+    margin-left: 284px;
+    margin-top: 156px;
+  }
+  87% {
+    margin-left: 299px;
+    margin-top: 163px;
+  }
+  89% {
+    margin-left: 314px;
+    margin-top: 173px;
+  }
+  92% {
+    margin-left: 326px;
+    margin-top: 185px;
+  }
+  95% {
+    margin-left: 336px;
+    margin-top: 199px;
+  }
+  98% {
+    margin-left: 343px;
+    margin-top: 215px;
+  }
+  100% {
+    margin-left: 348px;
+    margin-top: 232px;
+  }
+}

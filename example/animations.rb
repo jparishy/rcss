@@ -2,39 +2,66 @@ require '../lib/rcss'
 
 class Box < Rcss::CSSClass
   
-  def initialize
-    @rules = {
-      width: 128,
-      height: 32,
+  def initialize(name, width, height)
+    super(name)
+    
+    rules = {
+      width: width,
+      height: height,
       background_color: "red",
-      margin_left: 0,
+      margin_left: 250,
+      margin_top: 250
     }
+    
+    add_rules rules
   end
+  
 end
 
 class BoxAnimation < Rcss::CSSAnimation
   
   def initialize
     super
-    @class = Box.new
+    @box1 = Box.new "Box1", 128, 128
   end
   
   def do_animations
-    shake_dat_shit 20, 4, 0.5
+    move_in_a_circle 100, 36, 1
+  end
+  
+  def move_in_a_circle(radius, steps, duration)
+    left_orig = @box1[:margin_left]
+    top_orig = @box1[:margin_top]
+    step_duration = (Float(duration) / Float(steps))
+    step_size = ((Math::PI * 2.0) / steps)
+    circle_step radius, 0, steps, step_duration, step_size, left_orig, top_orig
+  end
+  
+  def circle_step radius, angle, steps_left, step_duration, step_size, left_orig, top_orig
+    unless steps_left == 0
+      animation step_duration, 0, nil, -> {
+        @box1[:margin_left] = left_orig + (Math.cos(angle) * radius)
+        @box1[:margin_top]  = top_orig  + (Math.sin(angle) * radius)
+
+        angle += step_size
+      }, -> {
+        circle_step radius, angle, steps_left - 1, step_duration, step_size, left_orig, top_orig
+      }
+    end
   end
   
   def shake_dat_shit(amount, iterations, duration)
-    originalMarginLeft = @class[:margin_left]
+    originalMarginLeft = @box1[:margin_left]
     
     unless iterations == 0
       animation (duration / 4.0), 0, nil, -> {
-        @class[:margin_left] += amount
+        @box1[:margin_left] += amount
       }, -> {
         animation (duration / 2.0), 0, nil, -> {
-          @class[:margin_left] -= amount * 2.0
+          @box1[:margin_left] -= amount * 2.0
         }, -> {
           animation (duration / 4.0), 0, nil, -> {
-           @class[:margin_left] = originalMarginLeft
+           @box1[:margin_left] = originalMarginLeft
           }, -> {
             shake_dat_shit (amount / 2.0).floor, iterations - 1, duration / 2.0
           }
@@ -44,44 +71,5 @@ class BoxAnimation < Rcss::CSSAnimation
   end
 end
 
-class Header < Rcss::CSSClass
-  def initialize
-    @rules = {
-      width: 1200,
-      height: 250,
-      background_color: "rgb(100, 180, 230)",
-      opacity: "0",
-      margin_top: 0,
-      font_family: "Helvetica Neue",
-      font_size: "24pt",
-      text_align: "center",
-      border_radius: 5
-    }
-  end
-end
-
-class HeaderAnimation < Rcss::CSSAnimation
-  def initialize
-    super
-    @class = Header.new
-  end
-  
-  def do_animations
-    # Fade in and drop down from above
-    @class[:margin_top] = -@class[:height] - 25
-    animation 0.5, 0, nil, -> {
-      @class[:opacity] = "0.5"
-      @class[:margin_top] = @class[:height] / 8
-    }, -> {
-      animation 0.2, 0, nil, -> {
-        @class[:opacity] = "1"
-        @class[:margin_top] = 0
-      }, -> {
-        
-      }
-    }
-  end
-end
-
-anim = HeaderAnimation.new
-anim.export "./stylesheets/rcss-anim.css", "./js/rcss-anim.js"
+anim = BoxAnimation.new
+anim.generate

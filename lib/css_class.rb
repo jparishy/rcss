@@ -12,6 +12,27 @@ require_relative 'css_base_serializable'
 module Rcss
 
   class CSSClass < CSSBaseSerializable
+    
+    def initialize name
+      @name = name
+      CSSAnimation.current_animation.register_class self
+    end
+    
+    def name
+      @name
+    end
+    
+    def add_rule name, value
+      @rules = { } if @rules == nil
+      
+      @rules[name] = CSSRule.new name, value
+    end
+    
+    def add_rules rules_hash
+      rules_hash.each do |name, value|
+        add_rule name, value
+      end
+    end
   
     def pixelatize_value(val)
       out = val.to_s
@@ -24,10 +45,10 @@ module Rcss
   
     def css
       class_lines = [ ]
-      class_lines << ".#{self.class.name} {"
+      class_lines << ".#{@name} {"
     
       @rules.each do |name, value|
-        class_lines << "  #{name.to_s.gsub("_", "-")}: #{pixelatize_value value};"
+        class_lines << "  #{value.export_css}"
       end
     
       class_lines << "}"
@@ -40,11 +61,11 @@ module Rcss
     end
   
     def [](symbol)
-      @rules[symbol]
+      @rules[symbol].value
     end
   
     def []=(symbol, value)
-      @rules[symbol] = value
+      @rules[symbol].value = value
     end
   
   end

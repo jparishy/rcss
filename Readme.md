@@ -3,7 +3,7 @@
 ***Keep in mind that I am no CSS3 expert. My background is all in native development. This is an experiment, after all!***
 
 ### About
-RCSS is a system built on top of Ruby to generate CSS animation using code that looks a lot like CoreAnimation.
+RCSS is a system built on top of Ruby to generate CSS animation using code that looks a lot like the convenience methods from CoreAnimation on iOS.
 
 
 Essentially, an animation is composed of a `duration`, a `delay`, some `options`, the actual `animation`, and a `completion` block.
